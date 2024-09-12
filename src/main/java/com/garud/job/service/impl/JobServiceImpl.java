@@ -2,15 +2,10 @@ package com.garud.job.service.impl;
 
 import com.garud.job.pojo.Job;
 import com.garud.job.service.JobService;
-import org.apache.catalina.filters.RemoteIpFilter;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.springframework.http.HttpStatus.BAD_REQUEST;
 
 @Service
 public class JobServiceImpl implements JobService {
@@ -43,5 +38,37 @@ jobs.add(job);
 
       return null;
 
+    }
+
+    @Override
+    public String deleteJobById(Long id) {
+
+        for (Job j : jobs) {
+            if (j.getId().equals(id)) {
+                jobs.remove(j);
+                return "job deleted successfully";
+            }
+        }
+
+        return null;
+    }
+
+    @Override
+    public boolean updateJob(Long id, Job updateJob) {
+        updateJob.setId(id);
+
+        for (Job job : jobs) {
+            if (job.getId().equals(id)) {
+
+                job.setDescription(updateJob.getDescription());
+                job.setTitle(updateJob.getTitle());
+                job.setMinSalary(updateJob.getMinSalary());
+                job.setMaxSalary(updateJob.getMaxSalary());
+                job.setLocation(updateJob.getLocation());
+                return true;
+            }
+        }
+
+        return false;
     }
 }
