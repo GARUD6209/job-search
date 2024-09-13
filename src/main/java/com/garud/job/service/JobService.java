@@ -13,7 +13,7 @@ public interface JobService {
 
     Job findJobById(Long id) ;
 
-    String deleteJobById(Long id);
+    Boolean deleteJobById(Long id);
 
     boolean updateJob(Long id, Job updateJob);
 }
