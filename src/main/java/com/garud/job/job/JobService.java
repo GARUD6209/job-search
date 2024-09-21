@@ -1,6 +1,4 @@
-package com.garud.job.service;
-
-import com.garud.job.pojo.Job;
+package com.garud.job.job;
 
 import java.util.List;
 

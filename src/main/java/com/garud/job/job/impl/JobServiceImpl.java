@@ -1,8 +1,8 @@
-package com.garud.job.service.impl;
+package com.garud.job.job.impl;
 
-import com.garud.job.pojo.Job;
-import com.garud.job.repository.JobRepository;
-import com.garud.job.service.JobService;
+import com.garud.job.job.Job;
+import com.garud.job.job.JobRepository;
+import com.garud.job.job.JobService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -48,12 +48,15 @@ public class JobServiceImpl implements JobService {
     @Override
     public Boolean deleteJobById(Long id) {
 
-       try {
-           jobRepository.deleteById(id);
-           return true;
-       }catch (Exception ex){
-           return false;
-       }
+        if (jobRepository.existsById(id)) {
+            jobRepository.deleteById(id);
+            return true;
+        }
+
+        return false;
+
+
+
     }
 
     @Override

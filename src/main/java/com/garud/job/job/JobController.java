@@ -1,7 +1,5 @@
-package com.garud.job.controller;
+package com.garud.job.job;
 
-import com.garud.job.pojo.Job;
-import com.garud.job.service.JobService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
