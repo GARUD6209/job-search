@@ -27,7 +27,7 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public Company findCompanyById(Long id) {
+    public Company getCompanyById(Long id) {
 
         try {
             Optional<Company> companyOptional = companyRepository.findById(id);

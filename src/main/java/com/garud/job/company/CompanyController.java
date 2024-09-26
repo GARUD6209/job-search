@@ -29,7 +29,7 @@ public class CompanyController {
     // GET /companies/{id} - Retrieve a company by its ID
     @GetMapping("/{id}")
     public ResponseEntity<Company> findCompanyById(@PathVariable Long id) {
-        Company company = companyService.findCompanyById(id);
+        Company company = companyService.getCompanyById(id);
         if (company != null) {
             return new ResponseEntity<>(company, HttpStatus.OK);
         }
